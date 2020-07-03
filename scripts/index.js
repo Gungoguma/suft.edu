@@ -1,6 +1,6 @@
 let index = 1;
 
-function makeChat(name,date,content) {
+const makeChat = (name,date,content) => {
     const chatlistDom = document.querySelector(".chatlist");
     const template = `
     <div id="char-${index++}">
@@ -14,19 +14,19 @@ function makeChat(name,date,content) {
         </div>
         `;
         chatlistDom.innerHTML += template;
-}
+};
 
 
 const buttonDom = document.querySelector(".input-button");
 const nameDom = document.querySelector(".input-name");
 const contentDom = document.querySelector(".input-content");
 
-function sendChat () {
+const sendChat = () => {
     const date = new Date().toLocaleString();
 
     makeChat(nameDom.value, date, contentDom.value);
     contentDom.value ="";
-}
+};
 
 buttonDom.addEventListener('click', () => sendChat());
 
